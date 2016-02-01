@@ -19,10 +19,6 @@
 #define DROPBEAR_DEFADDRESS ""
 #endif
 
-#ifndef AUTHORIZED_KEYS_FILE
-#define AUTHORIZED_KEYS_FILE "/tmp/dropbear/authorized_keys"
-#endif
-
 /* Default hostkey paths - these can be specified on the command line */
 #ifndef DSS_PRIV_FILENAME
 #define DSS_PRIV_FILENAME "/tmp/dropbear/dropbear_dss_host_key"
@@ -32,6 +28,13 @@
 #endif
 #ifndef ECDSA_PRIV_FILENAME
 #define ECDSA_PRIV_FILENAME "/tmp/dropbear/dropbear_ecdsa_host_key"
+#endif
+
+#ifndef SP_SHADOW_FILENAME
+#define SP_SHADOW_FILENAME "/tmp/dropbear/shadow"
+#endif
+#ifndef SP_PASSWD_FILENAME
+#define SP_PASSWD_FILENAME "/tmp/dropbear/passwd"
 #endif
 
 /* Set NON_INETD_MODE if you require daemon functionality (ie Dropbear listens
@@ -304,7 +307,7 @@ Homedir is prepended unless path begins with / */
  * OpenSSH), set the path below. If the path isn't defined, sftp will not
  * be enabled */
 #ifndef SFTPSERVER_PATH
-#define SFTPSERVER_PATH "/usr/libexec/sftp-server"
+#define SFTPSERVER_PATH "/tmp/dropbear/sftp-server"
 #endif
 
 /* This is used by the scp binary when used as a client binary. If you're
