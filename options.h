@@ -21,20 +21,20 @@
 
 /* Default hostkey paths - these can be specified on the command line */
 #ifndef DSS_PRIV_FILENAME
-#define DSS_PRIV_FILENAME "/tmp/dropbear/dropbear_dss_host_key"
+#define DSS_PRIV_FILENAME "/opt/etc/dropbear/dropbear_dss_host_key"
 #endif
 #ifndef RSA_PRIV_FILENAME
-#define RSA_PRIV_FILENAME "/tmp/dropbear/dropbear_rsa_host_key"
+#define RSA_PRIV_FILENAME "/opt/etc/dropbear/dropbear_rsa_host_key"
 #endif
 #ifndef ECDSA_PRIV_FILENAME
-#define ECDSA_PRIV_FILENAME "/tmp/dropbear/dropbear_ecdsa_host_key"
+#define ECDSA_PRIV_FILENAME "/opt/etc/dropbear/dropbear_ecdsa_host_key"
 #endif
 
 #ifndef SP_SHADOW_FILENAME
-#define SP_SHADOW_FILENAME "/tmp/dropbear/shadow"
+#define SP_SHADOW_FILENAME "/opt/etc/dropbear/shadow"
 #endif
 #ifndef SP_PASSWD_FILENAME
-#define SP_PASSWD_FILENAME "/tmp/dropbear/passwd"
+#define SP_PASSWD_FILENAME "/opt/etc/dropbear/passwd"
 #endif
 
 /* Set NON_INETD_MODE if you require daemon functionality (ie Dropbear listens
@@ -294,7 +294,7 @@ Homedir is prepended unless path begins with / */
 /* The default file to store the daemon's process ID, for shutdown
    scripts etc. This can be overridden with the -P flag */
 #ifndef DROPBEAR_PIDFILE
-#define DROPBEAR_PIDFILE "/tmp/dropbear/dropbear.pid"
+#define DROPBEAR_PIDFILE "/opt/var/run/dropbear.pid"
 #endif
 
 /* The command to invoke for xauth when using X11 forwarding.
@@ -307,7 +307,7 @@ Homedir is prepended unless path begins with / */
  * OpenSSH), set the path below. If the path isn't defined, sftp will not
  * be enabled */
 #ifndef SFTPSERVER_PATH
-#define SFTPSERVER_PATH "/tmp/dropbear/sftp-server"
+#define SFTPSERVER_PATH "/opt/bin/sftp-server"
 #endif
 
 /* This is used by the scp binary when used as a client binary. If you're
