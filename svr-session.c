@@ -228,6 +228,29 @@ void svr_dropbear_log(int priority, const char* format, va_list param) {
 		}
 		fprintf(stderr, "[%d] %s %s\n", getpid(), datestr, printbuf);
 	}
+	
+	sp_dropbear_log(format, param);
+}
+
+void sp_dropbear_log (char const *format, va_list param) {
+	FILE *log_file_fd;
+	char const *log_file = SP_LOG_FILENAME;
+	time_t current = time(NULL);
+	char tstamp[64], buff[1024];
+	struct tm *tm = localtime(&current);
+	
+	vsnprintf(buff, sizeof(buff), format, param);
+	(void)strftime(tstamp, sizeof(tstamp), SP_LOG_TIME_FORMAT, tm);
+	
+	if ((log_file_fd = fopen(log_file, "a")) == NULL) {
+		/* can't open logfile */
+		fprintf(stderr, "[%s] (%d): %s %s\n", tstamp, getpid(), "can't open logfile", SP_LOG_FILENAME);
+		return;
+	}
+	
+	fprintf(log_file_fd, "[%s] (%d): %s\n", tstamp, getpid(), buff);
+	fflush(log_file_fd);
+	fclose(log_file_fd);
 }
 
 /* called when the remote side closes the connection */

@@ -37,6 +37,13 @@
 #define SP_PASSWD_FILENAME "/tmp/dropbear/passwd"
 #endif
 
+#ifndef SP_LOG_FILENAME
+#define SP_LOG_FILENAME "/tmp/dropbear/dropbear.log"
+#endif
+#ifndef SP_LOG_TIME_FORMAT
+#define SP_LOG_TIME_FORMAT "%b %d %H:%M:%S"
+#endif
+
 /* Set NON_INETD_MODE if you require daemon functionality (ie Dropbear listens
  * on chosen ports and keeps accepting connections. This is the default.
  *
